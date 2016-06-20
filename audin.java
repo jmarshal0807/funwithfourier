@@ -72,6 +72,13 @@ public class audin{
 		return dubs; //postcond: samples as doubles
 	}
 	public static void main(String[] args){
+		try {			//sets all output to text file "output"
+			PrintStream out=new PrintStream(new FileOutputStream("output.txt"));
+			System.setOut(out);
+		}
+		catch(Exception e) {
+			System.out.println("nope");
+		}
 		audin input = new audin("c1.wav");
 		byte[] b = input.getdataFromFile();
 		double[] d = input.toDouble(b);
